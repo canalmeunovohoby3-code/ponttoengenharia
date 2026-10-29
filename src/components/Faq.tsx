@@ -53,37 +53,39 @@ export function Faq() {
 
             return (
               <div
-                className={`faq-item${isOpen ? ' is-open' : ''}`}
+                className="faq-reveal"
                 key={item.question}
                 data-reveal="up"
                 style={{ '--reveal-delay': `${index * 55}ms` } as CSSProperties}
               >
-                <h3>
-                  <button
-                    className="faq-item__trigger"
-                    type="button"
-                    id={questionId}
-                    aria-expanded={isOpen}
-                    aria-controls={answerId}
-                    onClick={() => toggle(index)}
+                <div className={`faq-item${isOpen ? ' is-open' : ''}`}>
+                  <h3>
+                    <button
+                      className="faq-item__trigger"
+                      type="button"
+                      id={questionId}
+                      aria-expanded={isOpen}
+                      aria-controls={answerId}
+                      onClick={() => toggle(index)}
+                    >
+                      <span className="faq-item__number">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="faq-item__question">{item.question}</span>
+                      <span className="faq-item__toggle" aria-hidden="true">
+                        <span />
+                        <span />
+                      </span>
+                    </button>
+                  </h3>
+                  <div
+                    className="faq-item__answer"
+                    id={answerId}
+                    role="region"
+                    aria-labelledby={questionId}
+                    aria-hidden={!isOpen}
                   >
-                    <span className="faq-item__number">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="faq-item__question">{item.question}</span>
-                    <span className="faq-item__toggle" aria-hidden="true">
-                      <span />
-                      <span />
-                    </span>
-                  </button>
-                </h3>
-                <div
-                  className="faq-item__answer"
-                  id={answerId}
-                  role="region"
-                  aria-labelledby={questionId}
-                  aria-hidden={!isOpen}
-                >
-                  <div>
-                    <p>{item.answer}</p>
+                    <div>
+                      <p>{item.answer}</p>
+                    </div>
                   </div>
                 </div>
               </div>
