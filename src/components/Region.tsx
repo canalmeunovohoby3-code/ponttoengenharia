@@ -39,7 +39,7 @@ export function Region() {
           <iframe
             className="region__map-embed"
             title="Mapa do estado de Pernambuco"
-            src="https://www.google.com/maps?ll=-8.28,-37.05&z=7&hl=pt-BR&output=embed"
+            src="https://www.google.com/maps?q=Pernambuco,+Brasil&z=7&hl=pt-BR&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
