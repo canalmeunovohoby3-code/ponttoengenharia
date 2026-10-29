@@ -2,7 +2,6 @@
 import { DEFAULT_WHATSAPP_MESSAGE, HERO_DIFFERENTIALS } from '../data/site'
 import { whatsappLink } from '../lib/whatsapp'
 import { Icon } from './Icon'
-import { MotionNotice } from './MotionNotice'
 import { TypewriterTitle } from './TypewriterTitle'
 
 export function Hero() {
@@ -19,8 +18,6 @@ export function Hero() {
 
       <div className="container hero__grid">
         <div className="hero__content">
-          <MotionNotice />
-
           <p className="eyebrow" data-reveal="left">
             Engenharia <span aria-hidden="true">•</span> Reformas <span aria-hidden="true">•</span> Gerenciamento de obras
           </p>

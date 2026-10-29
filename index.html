@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="force-motion">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,29 +43,6 @@
 
     <script>
       document.documentElement.classList.add('js')
-
-      try {
-        var motionPreference = window.localStorage.getItem('prontto-motion')
-        var requestedMotion = new URLSearchParams(window.location.search).get('motion')
-
-        if (requestedMotion === 'on' || requestedMotion === 'off') {
-          window.localStorage.setItem('prontto-motion', requestedMotion)
-          motionPreference = requestedMotion
-          window.history.replaceState(null, '', window.location.pathname + window.location.hash)
-        }
-
-        var isLocalPreview =
-          location.hostname === 'localhost' ||
-          location.hostname === '127.0.0.1' ||
-          location.hostname === '[::1]' ||
-          location.hostname === '::1'
-
-        if (motionPreference === 'on' || (isLocalPreview && motionPreference !== 'off')) {
-          document.documentElement.classList.add('force-motion')
-        }
-      } catch (error) {
-        // Privacy modes can block storage; the site still works normally.
-      }
     </script>
   </head>
   <body>

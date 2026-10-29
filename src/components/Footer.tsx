@@ -5,7 +5,6 @@ import {
   NAV_LINKS,
   WHATSAPP_DISPLAY,
 } from '../data/site'
-import { disableMotion, isMotionForced, systemPrefersReducedMotion } from '../lib/motionPreference'
 import { whatsappLink } from '../lib/whatsapp'
 import { Icon } from './Icon'
 import { Logo } from './Logo'
@@ -21,7 +20,6 @@ const footerServices = [
 export function Footer() {
   const year = new Date().getFullYear()
   const whatsappHref = whatsappLink(DEFAULT_WHATSAPP_MESSAGE)
-  const motionForced = isMotionForced() && systemPrefersReducedMotion()
 
   return (
     <footer className="site-footer">
@@ -99,14 +97,7 @@ export function Footer() {
 
         <div className="site-footer__bottom" data-reveal="up">
           <p>© {year} Prontto Engenharia &amp; Reforma. Todos os direitos reservados.</p>
-          <div className="site-footer__legal">
-            <p className="site-footer__disclaimer">Imagens ilustrativas. Portfólio oficial em atualização.</p>
-            {motionForced && (
-              <button className="site-footer__motion-toggle" type="button" onClick={disableMotion}>
-                Reduzir animações
-              </button>
-            )}
-          </div>
+          <p className="site-footer__disclaimer">Imagens ilustrativas. Portfólio oficial em atualização.</p>
         </div>
       </div>
     </footer>
